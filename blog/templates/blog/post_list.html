@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+
+
+                    {% block content %}
+                        {% for post in posts %}
+                            <div class="post">
+                                <div class="date">
+                                    <p>published: {{ post.published_date }}</p>
+                                </div>
+                                <p><h4>Pastor's name:</h4>{{ post.pastor }}</p>
+                                <h3>Church name: <a href="{% url 'post_detail' pk=record.pk %}">{{ post.title }}</a></h3>
+                                <p><h3>Church address:</h3> {{ post.text|linebreaksbr }}</p>
+                            </div>
+                        {% endfor %}
+                    {% endblock %}
